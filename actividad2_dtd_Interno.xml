@@ -1,32 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<web-app xmlns="http://java.sun.com/xml/ns/javaee" 
-         version="2.5" 
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"> 
-         // ...
-         // your all content goes here
-
-</web-app>
 <!DOCTYPE biblioteca [
 <!ELEMENT biblioteca (libros+,revistas+, periodicos+)>
 
 <!-- LIBROS-->
 <!ELEMENT libros (titulo,capitulos,indice,sinopsis)>
 <!ELEMENT titulo (#PCDATA)>
-<!ELEMENT capitulos (titulo_capitulo+,contenido_l+)>
-<!ELEMENT titulo_capitulo (#PCDATA)>
 <!ELEMENT indice (#PCDATA)>
 <!ELEMENT sinopsis (#PCDATA)>
+<!ELEMENT capitulos (titulo_capitulo,contenido_l)+>
+<!ELEMENT titulo_capitulo (nombre_capitulo)>
 <!ELEMENT contenido_l (#PCDATA)>
+<!ELEMENT nombre_capitulo (#PCDATA)>
+
 
 <!--  atributos LIBROS-->
 <!ATTLIST libros
-id_l CDATA #REQUIRED
+id_l ID #REQUIRED
 genero_l (novela|infantil|didactico) #REQUIRED 
-tipo_clase_l CDATA #REQUIRED  >
+tipo_clase_l CDATA #REQUIRED
+numero_paginas_titulo CDATA #REQUIRED  >
 
 
-<!ATTLIST titulo numero_paginas_titulo CDATA #REQUIRED >
 
 <!ATTLIST titulo_capitulo numero_paginas_capitulo CDATA #REQUIRED >
 <!ATTLIST contenido_l enlace_l CDATA #REQUIRED >
@@ -38,13 +32,15 @@ tipo_clase_l CDATA #REQUIRED  >
 <!ELEMENT titulo_r (#PCDATA)>
 <!ELEMENT numero_revista (#PCDATA)>
 <!ELEMENT indice_contenido (#PCDATA)>
-<!ELEMENT secciones (contenido_r+)>
+<!ELEMENT secciones_r (nombre_seccion_r,contenido_r+)>
+<!ELEMENT nombre_seccion_r (#PCDATA)>
 <!ELEMENT contenido_r (#PCDATA)>
+
 
 
 <!--  atributos REVISTAS-->
 <!ATTLIST revistas
-id_r CDATA #REQUIRED
+id_r ID #REQUIRED
 genero_r (informatica|corazon|coches|investigacion|otras) #REQUIRED 
 tipo_clase_r CDATA #REQUIRED
 numero_paginas_r CDATA #REQUIRED  >
@@ -57,11 +53,14 @@ numero_paginas_r CDATA #REQUIRED  >
 
 <!-- PERIODICOS-->
 <!ELEMENT periodicos (secciones_p+,indice_p)>
-<!ELEMENT secciones_p (articulos,contenido_p)>
+<!ELEMENT secciones_p (articulos+,contenido_p)>
+<!ELEMENT indice_p (#PCDATA)>
+<!ELEMENT articulos (#PCDATA)>
+<!ELEMENT contenido_p (#PCDATA)>
 
 <!--  atributos PERIODICOS-->
 <!ATTLIST periodicos 
-id_p CDATA #REQUIRED
+id_p ID #REQUIRED
 genero_p (nacionales|internacionales) #REQUIRED
 tipo_clase_p CDATA #REQUIRED
 fecha_publicacion_p CDATA #REQUIRED
@@ -80,19 +79,25 @@ fecha_publicacion_p CDATA #REQUIRED
 ]>
 
 <biblioteca>
-    <libros  id_l="L0001" genero_l= "novela" tipo_clase_l="1">
-        <titulo numero_paginas_titulo="120">Las aventuras de Pepe</titulo>
+    <libros  id_l="L0001" genero_l= "novela" tipo_clase_l="1" numero_paginas_titulo="120">
+        <titulo >Las aventuras de Pepe</titulo>
 
         <capitulos>
-            <titulo_capitulo numero_paginas_capitulo="25">Viaje inesperado</titulo_capitulo>
-                <contenido_l enlace_l="enlace_Contenido.xml"></contenido_l>
-            <titulo_capitulo numero_paginas_capitulo="25">Cuidado! </titulo_capitulo>
+            <titulo_capitulo numero_paginas_capitulo="25">
+                <nombre_capitulo>Viaje inesperado</nombre_capitulo>  
+            </titulo_capitulo>
+            <contenido_l enlace_l="enlace_Contenido.xml"></contenido_l>
+            <titulo_capitulo numero_paginas_capitulo="25">
+                <nombre_capitulo>Cuidado!</nombre_capitulo>   </titulo_capitulo>
                 <contenido_l enlace_l="enlace_Contenido.xml"></contenido_l>
            
-            <titulo_capitulo numero_paginas_capitulo="35">Este camino es mas fiable</titulo_capitulo>
+            <titulo_capitulo numero_paginas_capitulo="35">
+                <nombre_capitulo>Este camino es mas fiable</nombre_capitulo>
+            </titulo_capitulo>
                 <contenido_l enlace_l="enlace_Contenido.xml"></contenido_l>
             
-            <titulo_capitulo numero_paginas_capitulo="35">Lo hemos encontrado </titulo_capitulo>
+            <titulo_capitulo numero_paginas_capitulo="35">
+                <nombre_capitulo>Lo hemos encontrado</nombre_capitulo> </titulo_capitulo>
                 <contenido_l enlace_l="enlace_Contenido.xml"></contenido_l>
            
         </capitulos>
@@ -116,19 +121,22 @@ fecha_publicacion_p CDATA #REQUIRED
             BMW pag 11
             Honda pag 21
         </indice_contenido>
-        <secciones_r numero_paginas_seccion="10"> Ferrari
+        <secciones_r numero_paginas_seccion="10">
+            <nombre_seccion_r>Ferrari</nombre_seccion_r> 
             <contenido_r enlace_r="enlace_Contenido.xml" ></contenido_r>
         </secciones_r>
-        <secciones_r numero_paginas_seccion="10"> BMW
+        <secciones_r numero_paginas_seccion="10">
+            <nombre_seccion_r> BMW </nombre_seccion_r> 
             <contenido_r enlace_r="enlace_Contenido.xml" ></contenido_r>
         </secciones_r>
-        <secciones_r numero_paginas_seccion="10"> Honda
+        <secciones_r numero_paginas_seccion="10"> 
+            <nombre_seccion_r> Honda </nombre_seccion_r>
             <contenido_r enlace_r="enlace_Contenido.xml" ></contenido_r>
         </secciones_r>
 
     </revistas>
 
-    <Periodicos id_p="P0001" genero_p="nacional" tipo_clase_p="1" fecha_publicacion_p="12-05-2021">
+    <periodicos id_p="P0001" genero_p="nacionales" tipo_clase_p="1" fecha_publicacion_p="12-05-2021">
         <secciones_p genero_secciones_p="deportes">
             <articulos autor="Alejandro Dumas">Laporte jugara con la seleccion Española</articulos>
             <contenido_p enlace_p="enlace_Contenido.xml"></contenido_p>
@@ -143,6 +151,6 @@ fecha_publicacion_p CDATA #REQUIRED
         </indice_p>
 
 
-    </Periodicos>
+    </periodicos>
 
 </biblioteca>
