@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE biblioteca [
+<!ELEMENT biblioteca (libros+,revistas+, periodicos+)>
+
+<!-- LIBROS-->
+<!ELEMENT libros (titulo,capitulos,indice,sinopsis)>
+<!ELEMENT titulo (#PCDATA)>
+<!ELEMENT capitulos (titulo_capitulo+,contenido_l+)>
+<!ELEMENT titulo_capitulo (#PCDATA)>
+<!ELEMENT indice (#PCDATA)>
+<!ELEMENT sinopsis (#PCDATA)>
+<!ELEMENT contenido_l (#PCDATA)>
+
+<!--  atributos LIBROS-->
+<!ATTLIST libros
+id_l CDATA #REQUIRED
+genero_l (novela|infantil|didactico) #REQUIRED 
+tipo_clase_l CDATA #REQUIRED  >
+
+
+<!ATTLIST titulo numero_paginas_titulo CDATA #REQUIRED >
+
+<!ATTLIST titulo_capitulo numero_paginas_capitulo CDATA #REQUIRED >
+<!ATTLIST contenido_l enlace_l CDATA #REQUIRED >
+
+
+
+<!-- REVISTAS-->
+<!ELEMENT revistas (titulo_r,numero_revista,indice_contenido,secciones_r+)>
+<!ELEMENT titulo_r (#PCDATA)>
+<!ELEMENT numero_revista (#PCDATA)>
+<!ELEMENT indice_contenido (#PCDATA)>
+<!ELEMENT secciones (contenido_r+)>
+<!ELEMENT contenido_r (#PCDATA)>
+
+
+<!--  atributos REVISTAS-->
+<!ATTLIST revistas
+id_r CDATA #REQUIRED
+genero_r (informatica|corazon|coches|investigacion|otras) #REQUIRED 
+tipo_clase_r CDATA #REQUIRED
+numero_paginas_r CDATA #REQUIRED  >
+
+<!ATTLIST secciones_r numero_paginas_seccion CDATA #REQUIRED >
+
+<!ATTLIST revista numero_paginas_r CDATA #REQUIRED >
+<!ATTLIST contenido_r enlace_r CDATA #REQUIRED >
+
+
+<!-- PERIODICOS-->
+<!ELEMENT periodicos (secciones_p+,indice_p)>
+<!ELEMENT secciones_p (articulos,contenido_p)>
+
+<!--  atributos PERIODICOS-->
+<!ATTLIST periodicos 
+id_p CDATA #REQUIRED
+genero_p (nacionales|internacionales) #REQUIRED
+tipo_clase_p CDATA #REQUIRED
+fecha_publicacion_p CDATA #REQUIRED
+>
+
+<!ATTLIST secciones_p 
+ genero_secciones_p (economica|opinion|deportes|nacional|internacional) #REQUIRED >
+
+<!ATTLIST articulos autor CDATA #REQUIRED >
+<!ATTLIST contenido_p enlace_p CDATA #REQUIRED >
+
+
+
+<!ATTLIST articulos autor CDATA #REQUIRED >
+<!ATTLIST contenido enlace CDATA #REQUIRED >
+]>
+
+<biblioteca>
+    <libros  id_l="L0001" genero_l= "novela" tipo_clase_l="1">
+        <titulo numero_paginas_titulo="120">Las aventuras de Pepe</titulo>
+
+        <capitulos>
+            <titulo_capitulo numero_paginas_capitulo="25">Viaje inesperado</titulo_capitulo>
+                <contenido_l enlace_l="enlace_Contenido.xml"></contenido_l>
+            <titulo_capitulo numero_paginas_capitulo="25">Cuidado! </titulo_capitulo>
+                <contenido_l enlace_l="enlace_Contenido.xml"></contenido_l>
+           
+            <titulo_capitulo numero_paginas_capitulo="35">Este camino es mas fiable</titulo_capitulo>
+                <contenido_l enlace_l="enlace_Contenido.xml"></contenido_l>
+            
+            <titulo_capitulo numero_paginas_capitulo="35">Lo hemos encontrado </titulo_capitulo>
+                <contenido_l enlace_l="enlace_Contenido.xml"></contenido_l>
+           
+        </capitulos>
+
+        <indice>
+                 Viaje inesperado pag 1
+                 Cuidado! pag 26
+                 Este camino es mas fiable pag 51
+                 Lo hemos encontrado pag 86   
+        </indice>
+
+        <sinopsis> Este libro cuenta los viajes de pepe en un tiempo inesperado para él </sinopsis>
+
+    </libros>
+
+    <revistas id_r="R0001" genero_r="coches" tipo_clase_r="2" numero_paginas_r="30">
+        <titulo_r>Coches y motos</titulo_r>
+        <numero_revista> 10 </numero_revista> 
+        <indice_contenido>
+            Ferrari pag 1
+            BMW pag 11
+            Honda pag 21
+        </indice_contenido>
+        <secciones_r numero_paginas_seccion="10"> Ferrari
+            <contenido_r enlace_r="enlace_Contenido.xml" ></contenido_r>
+        </secciones_r>
+        <secciones_r numero_paginas_seccion="10"> BMW
+            <contenido_r enlace_r="enlace_Contenido.xml" ></contenido_r>
+        </secciones_r>
+        <secciones_r numero_paginas_seccion="10"> Honda
+            <contenido_r enlace_r="enlace_Contenido.xml" ></contenido_r>
+        </secciones_r>
+
+    </revistas>
+
+    <Periodicos id_p="P0001" genero_p="nacional" tipo_clase_p="1" fecha_publicacion_p="12-05-2021">
+        <secciones_p genero_secciones_p="deportes">
+            <articulos autor="Alejandro Dumas">Laporte jugara con la seleccion Española</articulos>
+            <contenido_p enlace_p="enlace_Contenido.xml"></contenido_p>
+        </secciones_p>
+        <secciones_p genero_secciones_p="nacional">
+            <articulos autor ="Federico Garcia">El fin del estado de alarma</articulos>
+            <contenido_p enlace_p="enlace_Contenido.xml"></contenido_p>
+        </secciones_p>
+        <indice_p>
+            Seccion deportes
+            Seccion nacional
+        </indice_p>
+
+
+    </Periodicos>
+
+</biblioteca>
