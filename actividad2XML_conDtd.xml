@@ -60,11 +60,15 @@
 
     <periodicos id_p="P0001" genero_p="nacionales" tipo_clase_p="1" fecha_publicacion_p="12-05-2021">
         <secciones_p genero_secciones_p="deportes">
-            <articulos autor="Alejandro Dumas">Laporte jugara con la seleccion Española</articulos>
+            <articulos autor="Alejandro Dumas">
+                <titulo_articulo>Laporte jugara con la seleccion Española</titulo_articulo>
+            </articulos>
             <contenido_p enlace_p="enlace_Contenido.xml"></contenido_p>
         </secciones_p>
         <secciones_p genero_secciones_p="nacional">
-            <articulos autor ="Federico Garcia">El fin del estado de alarma</articulos>
+            <articulos autor ="Federico Garcia">
+                <titulo_articulo>El fin del estado de alarma</titulo_articulo>
+            </articulos>
             <contenido_p enlace_p="enlace_Contenido.xml"></contenido_p>
         </secciones_p>
         <indice_p>

@@ -45,6 +45,7 @@ numero_paginas_r CDATA #REQUIRED  >
 
 <!ATTLIST secciones_r numero_paginas_seccion CDATA #REQUIRED >
 
+<!ATTLIST revista numero_paginas_r CDATA #REQUIRED >
 <!ATTLIST contenido_r enlace_r CDATA #REQUIRED >
 
 
@@ -52,7 +53,8 @@ numero_paginas_r CDATA #REQUIRED  >
 <!ELEMENT periodicos (secciones_p+,indice_p)>
 <!ELEMENT secciones_p (articulos+,contenido_p)>
 <!ELEMENT indice_p (#PCDATA)>
-<!ELEMENT articulos (#PCDATA)>
+<!ELEMENT articulos (titulo_articulo+)>
+<!ELEMENT titulo_articulo (#PCDATA)>
 <!ELEMENT contenido_p (#PCDATA)>
 
 <!--  atributos PERIODICOS-->
@@ -68,3 +70,8 @@ fecha_publicacion_p CDATA #REQUIRED
 
 <!ATTLIST articulos autor CDATA #REQUIRED >
 <!ATTLIST contenido_p enlace_p CDATA #REQUIRED >
+
+
+
+<!ATTLIST articulos autor CDATA #REQUIRED >
+<!ATTLIST contenido enlace CDATA #REQUIRED >
