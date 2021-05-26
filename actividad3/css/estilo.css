@@ -1,0 +1,150 @@
+img {
+    width: 70px;
+    
+}
+
+body{
+    background-color: rgb(127, 246, 255);
+}
+
+.div{
+    margin-top: -20px;
+    background-color: rgb(37, 57, 110);
+    width: 101%;
+    height: 120px;
+    margin-left: -8px;
+    
+
+}
+.h2{
+    color: rgb(23, 138, 138);
+    padding-top: 50px;
+    padding-left: 20px;
+    padding-right: 0px;
+}
+.a{
+    margin-right:65%;
+    margin-top: -45px;
+    float: right;
+}
+.t{
+    margin-left: 20px;
+}
+.profesores{
+    margin-left: 300px;
+    margin-top: 70px;
+    margin-right: 0px 
+
+}
+.ciclos{
+    float: right;
+    margin-right: 350px;
+    margin-top: -140px;
+
+}
+.lista{
+    margin-left: 420px;
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+.divformulario{
+    float: left;
+}
+.divformulario1{
+    float: right;
+    margin-right: 440px;
+}
+.divbotones{
+    float: right;
+    margin-right: 200px;
+    margin-top: -90px;
+}
+
+.celdaetiqueta{
+    padding-right: 18px;
+}
+.celdaetiquetaedad{
+    padding-right: 37px;
+}
+@media (max-width:1300px ){
+    .a{
+        margin-right: 0px;
+        margin-top: -55px;
+        margin-left: 400px;
+        float: right;
+    }
+    .profesores{
+        margin-left: 200px;
+        margin-top: 70px;
+        margin-right: 0px 
+    
+    }
+    .ciclos{
+        margin-right: 25px;
+        margin-left: 25px;
+        margin-top: 70px;
+    
+    }
+    
+    .lista{
+        margin-left: 20px;
+        margin-top: 280px;
+        margin-bottom: 40px;
+    }
+    .textarearesponsive{
+
+       width: 300px;
+       height: 80px;
+        
+    }
+    .divbotones{
+        float:left;
+        margin-top: 10px;
+    }
+    .divformulario1{
+        float: left;
+        margin-right: 0px;
+    }
+
+}
+@media (max-width:768px ){
+    .a{
+        margin-right: 20px;
+        margin-top: -55px;
+        float: right;
+        margin-left: 0px;
+    }
+    .profesores{
+        margin-left: 200px;
+        margin-top: 70px;
+        margin-right: 0px 
+    
+    }
+    .ciclos{
+        margin-right: 25px;
+        margin-left: 25px;
+        margin-top: 70px;
+    
+    }
+    
+    .lista{
+        margin-left: 20px;
+        margin-top: 280px;
+        margin-bottom: 40px;
+    }
+    .textarearesponsive{
+
+       width: 300px;
+       height: 80px;
+        
+    }
+    .divbotones{
+        float:left;
+        margin-top: 10px;
+    }
+    .divformulario1{
+        float: left;
+        margin-right: 0px;
+    }
+
+}
